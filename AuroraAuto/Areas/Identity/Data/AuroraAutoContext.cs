@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AuroraAuto.Areas.Identity.Data;
 
-public class AuroraAutoContext : IdentityDbContext<AuroraAutoUser>
+public class AuroraAutoContext : IdentityDbContext<IdentityUser>
 {
     public AuroraAutoContext(DbContextOptions<AuroraAutoContext> options)
         : base(options)
