@@ -12,5 +12,6 @@ namespace AuroraAuto.Models
         public required string Email { get; set; }
 
         public required ICollection<Order> Orders { get; set; }
+        public ICollection<Cart> Carts { get; set; }
     }
 }
