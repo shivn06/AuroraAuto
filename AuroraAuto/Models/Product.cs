@@ -3,6 +3,8 @@
     public class Product
     {
         public int ProductID { get; set; }
+
+
         public string PImage { get; set; }
         public string PName { get; set; }
         public int Price { get; set; }
