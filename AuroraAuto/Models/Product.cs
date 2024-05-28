@@ -12,5 +12,6 @@
         public string CategoryID { get; set; }
 
         public Category Category { get; set; }
+        public ICollection<Cart> Carts { get; set; }
     }
 }
