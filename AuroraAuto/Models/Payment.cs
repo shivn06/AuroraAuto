@@ -4,8 +4,8 @@
     {
         public int PaymentID { get; set; }
         public int CustomerID { get; set; }
-        public int Pay_Amount { get; set; }
-        public required string Pay_Method { get; set; }
+        public decimal Pay_Amount { get; set; }
+        public string Pay_Method { get; set; }
         public DateTime Pay_Date { get; set; }
 
 
