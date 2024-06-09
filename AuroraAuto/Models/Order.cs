@@ -7,5 +7,7 @@
         public int CartID { get; set; }
 
         public Customer Customer { get; set; }
+        public Payment Payment { get; set; }
+        public Cart Cart { get; set; }
     }
 }

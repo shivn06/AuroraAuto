@@ -4,7 +4,7 @@ namespace AuroraAuto.Models
 {
     public class Category
     {
-        public int Category_ID { get; set; }
+        public int CategoryID { get; set; }
 
         [DisplayName("Category Name")]
         public string CategoryName { get; set; }

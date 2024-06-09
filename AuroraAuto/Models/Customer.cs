@@ -12,17 +12,17 @@ namespace AuroraAuto.Models
         [StringLength(30)]
         [DisplayName("First Name")]
         [RegularExpression("^[A-Za-z]+$", ErrorMessage = "You have entered an Invalid Character")]
-        public required string FirstName { get; set; }
+        public required string FirstName { get; set; }  // First Name Field
 
         [StringLength(30)]
         [DisplayName("Middle Name(s)")]
-        public string? MiddleName { get; set; }
+        public string? MiddleName { get; set; } // Optional Middle Name Field
 
         [Required]
         [StringLength(30)]
         [DisplayName("Last Name")]
         [RegularExpression("^[A-Za-z]+$", ErrorMessage = "You have entered an Invalid Character")]
-        public required string LastName { get; set; }
+        public required string LastName { get; set; } //Last Name Field  
 
         [Required]
         public required string Address { get; set; }
@@ -39,5 +39,6 @@ namespace AuroraAuto.Models
 
         public required ICollection<Order> Orders { get; set; }
         public required ICollection<Cart> Carts { get; set; }
+        public Payment Payment { get; set; } = null!;
     }
 }

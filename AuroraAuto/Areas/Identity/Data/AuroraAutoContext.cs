@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using AuroraAuto.Models;
 
 namespace AuroraAuto.Areas.Identity.Data;
 
@@ -18,4 +19,6 @@ public class AuroraAutoContext : IdentityDbContext<IdentityUser>
         // For example, you can rename the ASP.NET Identity table names and more.
         // Add your customizations after calling base.OnModelCreating(builder);
     }
+
+public DbSet<AuroraAuto.Models.Cart> Cart { get; set; } = default!;
 }
