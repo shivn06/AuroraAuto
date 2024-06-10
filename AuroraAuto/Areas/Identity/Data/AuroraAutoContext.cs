@@ -21,4 +21,6 @@ public class AuroraAutoContext : IdentityDbContext<IdentityUser>
     }
 
 public DbSet<AuroraAuto.Models.Cart> Cart { get; set; } = default!;
+
+public DbSet<AuroraAuto.Models.Category> Category { get; set; } = default!;
 }
