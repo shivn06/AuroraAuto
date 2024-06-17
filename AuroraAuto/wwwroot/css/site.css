@@ -31,14 +31,6 @@ body {
 
 }
 
-.p1 {
-    position:relative;
-    right:300px;
-    top: 500px;
-    font-size:50pt;
-    color:white;
-}
-
 .shopbutton {
     position: relative;
     top: 700px;
