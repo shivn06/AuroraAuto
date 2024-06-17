@@ -39,6 +39,6 @@ namespace AuroraAuto.Models
 
         public required ICollection<Order> Orders { get; set; }
         public required ICollection<Cart> Carts { get; set; }
-        public Payment Payment { get; set; } = null!;
+
     }
 }

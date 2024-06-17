@@ -121,12 +121,18 @@ namespace AuroraAuto.Migrations
                     b.Property<int>("CustomerID")
                         .HasColumnType("int");
 
+                    b.Property<int>("PaymentID")
+                        .HasColumnType("int");
+
                     b.HasKey("OrderID");
 
                     b.HasIndex("CartID")
                         .IsUnique();
 
                     b.HasIndex("CustomerID");
+
+                    b.HasIndex("PaymentID")
+                        .IsUnique();
 
                     b.ToTable("Order");
                 });
@@ -139,12 +145,6 @@ namespace AuroraAuto.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentID"));
 
-                    b.Property<int>("CustomerID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OrderID")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("PayAmount")
                         .HasColumnType("decimal(18,2)");
 
@@ -156,12 +156,6 @@ namespace AuroraAuto.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PaymentID");
-
-                    b.HasIndex("CustomerID")
-                        .IsUnique();
-
-                    b.HasIndex("OrderID")
-                        .IsUnique();
 
                     b.ToTable("Payment");
                 });
@@ -433,28 +427,17 @@ namespace AuroraAuto.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("AuroraAuto.Models.Payment", "Payment")
+                        .WithOne("Order")
+                        .HasForeignKey("AuroraAuto.Models.Order", "PaymentID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Cart");
 
                     b.Navigation("Customer");
-                });
 
-            modelBuilder.Entity("AuroraAuto.Models.Payment", b =>
-                {
-                    b.HasOne("AuroraAuto.Models.Customer", "Customer")
-                        .WithOne("Payment")
-                        .HasForeignKey("AuroraAuto.Models.Payment", "CustomerID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AuroraAuto.Models.Order", "Order")
-                        .WithOne("Payment")
-                        .HasForeignKey("AuroraAuto.Models.Payment", "OrderID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Customer");
-
-                    b.Navigation("Order");
+                    b.Navigation("Payment");
                 });
 
             modelBuilder.Entity("AuroraAuto.Models.Product", b =>
@@ -535,14 +518,11 @@ namespace AuroraAuto.Migrations
                     b.Navigation("Carts");
 
                     b.Navigation("Orders");
-
-                    b.Navigation("Payment")
-                        .IsRequired();
                 });
 
-            modelBuilder.Entity("AuroraAuto.Models.Order", b =>
+            modelBuilder.Entity("AuroraAuto.Models.Payment", b =>
                 {
-                    b.Navigation("Payment")
+                    b.Navigation("Order")
                         .IsRequired();
                 });
 
