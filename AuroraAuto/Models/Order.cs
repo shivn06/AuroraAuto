@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AuroraAuto.Models
 {
@@ -9,10 +10,9 @@ namespace AuroraAuto.Models
         public int CustomerID { get; set; }
         public int CartID { get; set; }
         public int PaymentID { get; set; }
-        public Payment Payment { get; set; }
 
         public Customer Customer { get; set; }
-
         public Cart Cart { get; set; }
+        public Payment Payment { get; set; }
     }
 }

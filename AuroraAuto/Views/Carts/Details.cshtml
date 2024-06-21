@@ -1,0 +1,42 @@
+﻿@model AuroraAuto.Models.Cart
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Cart</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TotalPrice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Customer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Customer.Address)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Product)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Product.CategoryID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.CartID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

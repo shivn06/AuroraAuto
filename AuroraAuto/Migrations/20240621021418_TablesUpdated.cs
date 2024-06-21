@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AuroraAuto.Migrations
 {
     /// <inheritdoc />
-    public partial class Cart : Migration
+    public partial class TablesUpdated : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -40,6 +40,21 @@ namespace AuroraAuto.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Customer", x => x.CustomerID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Payment",
+                columns: table => new
+                {
+                    PaymentID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PayAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    PayMethod = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PayDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Payment", x => x.PaymentID);
                 });
 
             migrationBuilder.CreateTable(
@@ -99,7 +114,8 @@ namespace AuroraAuto.Migrations
                     OrderID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CustomerID = table.Column<int>(type: "int", nullable: false),
-                    CartID = table.Column<int>(type: "int", nullable: false)
+                    CartID = table.Column<int>(type: "int", nullable: false),
+                    PaymentID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -116,34 +132,11 @@ namespace AuroraAuto.Migrations
                         principalTable: "Customer",
                         principalColumn: "CustomerID",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Payment",
-                columns: table => new
-                {
-                    PaymentID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CustomerID = table.Column<int>(type: "int", nullable: false),
-                    OrderID = table.Column<int>(type: "int", nullable: false),
-                    PayAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    PayMethod = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PayDate = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Payment", x => x.PaymentID);
                     table.ForeignKey(
-                        name: "FK_Payment_Customer_CustomerID",
-                        column: x => x.CustomerID,
-                        principalTable: "Customer",
-                        principalColumn: "CustomerID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Payment_Order_OrderID",
-                        column: x => x.OrderID,
-                        principalTable: "Order",
-                        principalColumn: "OrderID",
+                        name: "FK_Order_Payment_PaymentID",
+                        column: x => x.PaymentID,
+                        principalTable: "Payment",
+                        principalColumn: "PaymentID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -160,8 +153,7 @@ namespace AuroraAuto.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Order_CartID",
                 table: "Order",
-                column: "CartID",
-                unique: true);
+                column: "CartID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Order_CustomerID",
@@ -169,16 +161,9 @@ namespace AuroraAuto.Migrations
                 column: "CustomerID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Payment_CustomerID",
-                table: "Payment",
-                column: "CustomerID",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Payment_OrderID",
-                table: "Payment",
-                column: "OrderID",
-                unique: true);
+                name: "IX_Order_PaymentID",
+                table: "Order",
+                column: "PaymentID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Product_CategoryID1",
@@ -190,13 +175,13 @@ namespace AuroraAuto.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Payment");
-
-            migrationBuilder.DropTable(
                 name: "Order");
 
             migrationBuilder.DropTable(
                 name: "Cart");
+
+            migrationBuilder.DropTable(
+                name: "Payment");
 
             migrationBuilder.DropTable(
                 name: "Customer");

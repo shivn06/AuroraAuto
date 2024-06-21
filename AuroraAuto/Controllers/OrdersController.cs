@@ -22,7 +22,7 @@ namespace AuroraAuto.Controllers
         // GET: Orders
         public async Task<IActionResult> Index()
         {
-            var auroraAutoContext = _context.Order.Include(o => o.Cart).Include(o => o.Customer);
+            var auroraAutoContext = _context.Order.Include(o => o.Cart).Include(o => o.Customer).Include(o => o.Payment);
             return View(await auroraAutoContext.ToListAsync());
         }
 
@@ -37,6 +37,7 @@ namespace AuroraAuto.Controllers
             var order = await _context.Order
                 .Include(o => o.Cart)
                 .Include(o => o.Customer)
+                .Include(o => o.Payment)
                 .FirstOrDefaultAsync(m => m.OrderID == id);
             if (order == null)
             {
@@ -51,6 +52,7 @@ namespace AuroraAuto.Controllers
         {
             ViewData["CartID"] = new SelectList(_context.Cart, "CartID", "CartID");
             ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Address");
+            ViewData["PaymentID"] = new SelectList(_context.Set<Payment>(), "PaymentID", "PaymentID");
             return View();
         }
 
@@ -59,7 +61,7 @@ namespace AuroraAuto.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderID,CustomerID,CartID")] Order order)
+        public async Task<IActionResult> Create([Bind("OrderID,CustomerID,CartID,PaymentID")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -69,6 +71,7 @@ namespace AuroraAuto.Controllers
             }
             ViewData["CartID"] = new SelectList(_context.Cart, "CartID", "CartID", order.CartID);
             ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Address", order.CustomerID);
+            ViewData["PaymentID"] = new SelectList(_context.Set<Payment>(), "PaymentID", "PaymentID", order.PaymentID);
             return View(order);
         }
 
@@ -87,6 +90,7 @@ namespace AuroraAuto.Controllers
             }
             ViewData["CartID"] = new SelectList(_context.Cart, "CartID", "CartID", order.CartID);
             ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Address", order.CustomerID);
+            ViewData["PaymentID"] = new SelectList(_context.Set<Payment>(), "PaymentID", "PaymentID", order.PaymentID);
             return View(order);
         }
 
@@ -95,7 +99,7 @@ namespace AuroraAuto.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrderID,CustomerID,CartID")] Order order)
+        public async Task<IActionResult> Edit(int id, [Bind("OrderID,CustomerID,CartID,PaymentID")] Order order)
         {
             if (id != order.OrderID)
             {
@@ -124,6 +128,7 @@ namespace AuroraAuto.Controllers
             }
             ViewData["CartID"] = new SelectList(_context.Cart, "CartID", "CartID", order.CartID);
             ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Address", order.CustomerID);
+            ViewData["PaymentID"] = new SelectList(_context.Set<Payment>(), "PaymentID", "PaymentID", order.PaymentID);
             return View(order);
         }
 
@@ -138,6 +143,7 @@ namespace AuroraAuto.Controllers
             var order = await _context.Order
                 .Include(o => o.Cart)
                 .Include(o => o.Customer)
+                .Include(o => o.Payment)
                 .FirstOrDefaultAsync(m => m.OrderID == id);
             if (order == null)
             {

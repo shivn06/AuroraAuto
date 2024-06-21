@@ -20,15 +20,17 @@ public class AuroraAutoContext : IdentityDbContext<IdentityUser>
         // Add your customizations after calling base.OnModelCreating(builder);
     }
 
+public DbSet<AuroraAuto.Models.Customer> Customer { get; set; } = default!;
+
 public DbSet<AuroraAuto.Models.Cart> Cart { get; set; } = default!;
 
 public DbSet<AuroraAuto.Models.Category> Category { get; set; } = default!;
-
-public DbSet<AuroraAuto.Models.Customer> Customer { get; set; } = default!;
 
 public DbSet<AuroraAuto.Models.Order> Order { get; set; } = default!;
 
 public DbSet<AuroraAuto.Models.Payment> Payment { get; set; } = default!;
 
 public DbSet<AuroraAuto.Models.Product> Product { get; set; } = default!;
+
+
 }

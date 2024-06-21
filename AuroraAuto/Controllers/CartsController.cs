@@ -49,7 +49,7 @@ namespace AuroraAuto.Controllers
         // GET: Carts/Create
         public IActionResult Create()
         {
-            ViewData["CustomerID"] = new SelectList(_context.Set<Customer>(), "CustomerID", "Address");
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Address");
             ViewData["ProductID"] = new SelectList(_context.Set<Product>(), "ProductID", "CategoryID");
             return View();
         }
@@ -67,7 +67,7 @@ namespace AuroraAuto.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerID"] = new SelectList(_context.Set<Customer>(), "CustomerID", "Address", cart.CustomerID);
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Address", cart.CustomerID);
             ViewData["ProductID"] = new SelectList(_context.Set<Product>(), "ProductID", "CategoryID", cart.ProductID);
             return View(cart);
         }
@@ -85,7 +85,7 @@ namespace AuroraAuto.Controllers
             {
                 return NotFound();
             }
-            ViewData["CustomerID"] = new SelectList(_context.Set<Customer>(), "CustomerID", "Address", cart.CustomerID);
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Address", cart.CustomerID);
             ViewData["ProductID"] = new SelectList(_context.Set<Product>(), "ProductID", "CategoryID", cart.ProductID);
             return View(cart);
         }
@@ -122,7 +122,7 @@ namespace AuroraAuto.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerID"] = new SelectList(_context.Set<Customer>(), "CustomerID", "Address", cart.CustomerID);
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Address", cart.CustomerID);
             ViewData["ProductID"] = new SelectList(_context.Set<Product>(), "ProductID", "CategoryID", cart.ProductID);
             return View(cart);
         }

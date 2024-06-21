@@ -126,13 +126,11 @@ namespace AuroraAuto.Migrations
 
                     b.HasKey("OrderID");
 
-                    b.HasIndex("CartID")
-                        .IsUnique();
+                    b.HasIndex("CartID");
 
                     b.HasIndex("CustomerID");
 
-                    b.HasIndex("PaymentID")
-                        .IsUnique();
+                    b.HasIndex("PaymentID");
 
                     b.ToTable("Order");
                 });
@@ -416,8 +414,8 @@ namespace AuroraAuto.Migrations
             modelBuilder.Entity("AuroraAuto.Models.Order", b =>
                 {
                     b.HasOne("AuroraAuto.Models.Cart", "Cart")
-                        .WithOne("Order")
-                        .HasForeignKey("AuroraAuto.Models.Order", "CartID")
+                        .WithMany()
+                        .HasForeignKey("CartID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -428,8 +426,8 @@ namespace AuroraAuto.Migrations
                         .IsRequired();
 
                     b.HasOne("AuroraAuto.Models.Payment", "Payment")
-                        .WithOne("Order")
-                        .HasForeignKey("AuroraAuto.Models.Order", "PaymentID")
+                        .WithMany()
+                        .HasForeignKey("PaymentID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -502,12 +500,6 @@ namespace AuroraAuto.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("AuroraAuto.Models.Cart", b =>
-                {
-                    b.Navigation("Order")
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("AuroraAuto.Models.Category", b =>
                 {
                     b.Navigation("Products");
@@ -518,12 +510,6 @@ namespace AuroraAuto.Migrations
                     b.Navigation("Carts");
 
                     b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("AuroraAuto.Models.Payment", b =>
-                {
-                    b.Navigation("Order")
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("AuroraAuto.Models.Product", b =>
