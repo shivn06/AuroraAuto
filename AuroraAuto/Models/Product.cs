@@ -9,7 +9,7 @@ namespace AuroraAuto.Models
 
         [DisplayName("Category Name")]
         [Required]
-        public string CategoryID { get; set; }
+        public int CategoryID { get; set; }
 
         [DisplayName("Product Image")]
         [Required]

@@ -166,11 +166,7 @@ namespace AuroraAuto.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductID"));
 
-                    b.Property<string>("CategoryID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CategoryID1")
+                    b.Property<int>("CategoryID")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
@@ -189,7 +185,7 @@ namespace AuroraAuto.Migrations
 
                     b.HasKey("ProductID");
 
-                    b.HasIndex("CategoryID1");
+                    b.HasIndex("CategoryID");
 
                     b.ToTable("Product");
                 });
@@ -442,7 +438,7 @@ namespace AuroraAuto.Migrations
                 {
                     b.HasOne("AuroraAuto.Models.Category", "Category")
                         .WithMany("Products")
-                        .HasForeignKey("CategoryID1")
+                        .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

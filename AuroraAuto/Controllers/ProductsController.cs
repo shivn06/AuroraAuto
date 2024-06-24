@@ -22,7 +22,8 @@ namespace AuroraAuto.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Product.ToListAsync());
+            var auroraAutoContext = _context.Product.Include(p => p.Category);
+            return View(await auroraAutoContext.ToListAsync());
         }
 
         // GET: Products/Details/5
@@ -34,6 +35,7 @@ namespace AuroraAuto.Controllers
             }
 
             var product = await _context.Product
+                .Include(p => p.Category)
                 .FirstOrDefaultAsync(m => m.ProductID == id);
             if (product == null)
             {
@@ -46,6 +48,7 @@ namespace AuroraAuto.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
+            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryID");
             return View();
         }
 
@@ -62,6 +65,7 @@ namespace AuroraAuto.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryID", product.CategoryID);
             return View(product);
         }
 
@@ -78,6 +82,7 @@ namespace AuroraAuto.Controllers
             {
                 return NotFound();
             }
+            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryID", product.CategoryID);
             return View(product);
         }
 
@@ -113,6 +118,7 @@ namespace AuroraAuto.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryID", product.CategoryID);
             return View(product);
         }
 
@@ -125,6 +131,7 @@ namespace AuroraAuto.Controllers
             }
 
             var product = await _context.Product
+                .Include(p => p.Category)
                 .FirstOrDefaultAsync(m => m.ProductID == id);
             if (product == null)
             {

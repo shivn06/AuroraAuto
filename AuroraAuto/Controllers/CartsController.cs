@@ -61,7 +61,7 @@ namespace AuroraAuto.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CartID,Quantity,TotalPrice,CustomerID,ProductID")] Cart cart)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 _context.Add(cart);
                 await _context.SaveChangesAsync();
@@ -102,7 +102,7 @@ namespace AuroraAuto.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {

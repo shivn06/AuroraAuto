@@ -56,7 +56,7 @@ namespace AuroraAuto.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CustomerID,FirstName,MiddleName,LastName,Address,Phone,Email")] Customer customer)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 _context.Add(customer);
                 await _context.SaveChangesAsync();
@@ -93,7 +93,7 @@ namespace AuroraAuto.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {
