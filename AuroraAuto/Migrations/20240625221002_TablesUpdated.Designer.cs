@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AuroraAuto.Migrations
 {
     [DbContext(typeof(AuroraAutoContext))]
-    [Migration("20240624231103_TablesUpdated")]
+    [Migration("20240625221002_TablesUpdated")]
     partial class TablesUpdated
     {
         /// <inheritdoc />
