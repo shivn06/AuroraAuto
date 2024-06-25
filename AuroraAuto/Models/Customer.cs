@@ -22,23 +22,23 @@ namespace AuroraAuto.Models
         [StringLength(30)]
         [DisplayName("Last Name")]
         [RegularExpression("^[A-Za-z]+$", ErrorMessage = "You have entered an Invalid Character")]
-        public required string LastName { get; set; } //Last Name Field  
+        public required string LastName { get; set; } // Last Name Field  
 
         [Required]
-        public required string Address { get; set; }
+        public required string Address { get; set; } // Address Field
 
         [Required]
         [DataType(DataType.PhoneNumber)]
         [RegularExpression("^(((\\+?64\\s*[-\\.\\ ]?[3-9]|\\(?0[3-9]\\)?)\\s*[-\\.\\ ]?\\d{3}\\s*[-\\.\\ ]?\\d{4})|((\\+?64\\s*[-\\.\\(\\ ]?2\\d{1,2}[-\\.\\)\\ ]?|\\(?02\\d{1}\\)?)\\s*[-\\.\\ ]?\\d{3}\\s*[-\\.\\ ]?\\d{3,5})|((\\+?64\\s*[-\\.\\ ]?[-\\.\\(\\ ]?800[-\\.\\)\\ ]?|[-\\.\\(\\ ]?0800[-\\.\\)\\ ]?)\\s*[-\\.\\ ]?\\d{3}\\s*[-\\.\\ ]?(\\d{2}|\\d{5})))|^$$", ErrorMessage = "Please enter a valid Phone Number")]
-        public required string Phone { get; set; }
+        public required string Phone { get; set; } // Phone Number Field
 
         [Required]
         [DisplayName("Email")]
         [DataType(DataType.EmailAddress)]
-        public required string Email { get; set; }
+        public required string Email { get; set; } // Email Field
 
-        public required ICollection<Order> Orders { get; set; }
-        public required ICollection<Cart> Carts { get; set; }
+        public required ICollection<Order> Orders { get; set; } // Relationship for 1 Customer to Many Orders 
+        public required ICollection<Cart> Carts { get; set; } // Relationship for 1 Customer to Many Carts
 
     }
 }
