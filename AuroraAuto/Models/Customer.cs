@@ -11,7 +11,7 @@ namespace AuroraAuto.Models
         [Required]
         [StringLength(30)]
         [DisplayName("First Name")]
-        [RegularExpression("^[A-Za-z]+$", ErrorMessage = "You have entered an Invalid Character")]
+        [RegularExpression("^[a-zA-Z-' 1-9]+$", ErrorMessage = "You have entered an Invalid Character")]
         public required string FirstName { get; set; }  // First Name Field
 
         [StringLength(30)]
@@ -21,7 +21,7 @@ namespace AuroraAuto.Models
         [Required]
         [StringLength(30)]
         [DisplayName("Last Name")]
-        [RegularExpression("^[A-Za-z]+$", ErrorMessage = "You have entered an Invalid Character")]
+        [RegularExpression("^[a-zA-Z-' 1-9]+$", ErrorMessage = "You have entered an Invalid Character")]
         public required string LastName { get; set; } // Last Name Field  
 
         [Required]
