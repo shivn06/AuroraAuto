@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -70,6 +71,18 @@ namespace AuroraAuto.Areas.Identity.Pages.Account
         /// </summary>
         public class InputModel
         {
+            [Required]
+            [StringLength(30)]
+            [DisplayName("First Name")]
+            [RegularExpression("^[a-zA-Z-' 1-9]+$", ErrorMessage = "You have entered an Invalid Character")]
+            public string FirstName { get; set; }  // First Name Field
+
+            [Required]
+            [StringLength(30)]
+            [DisplayName("Last Name")]
+            [RegularExpression("^[a-zA-Z-' 1-9]+$", ErrorMessage = "You have entered an Invalid Character")]
+            public string LastName { get; set; } // Last Name Field
+
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.

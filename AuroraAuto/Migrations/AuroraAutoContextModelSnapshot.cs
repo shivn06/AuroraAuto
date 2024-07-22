@@ -48,7 +48,7 @@ namespace AuroraAuto.Migrations
 
                     b.HasIndex("ProductID");
 
-                    b.ToTable("Cart");
+                    b.ToTable("Cart", (string)null);
                 });
 
             modelBuilder.Entity("AuroraAuto.Models.Category", b =>
@@ -65,7 +65,7 @@ namespace AuroraAuto.Migrations
 
                     b.HasKey("CategoryID");
 
-                    b.ToTable("Category");
+                    b.ToTable("Category", (string)null);
                 });
 
             modelBuilder.Entity("AuroraAuto.Models.Customer", b =>
@@ -104,7 +104,7 @@ namespace AuroraAuto.Migrations
 
                     b.HasKey("CustomerID");
 
-                    b.ToTable("Customer");
+                    b.ToTable("Customer", (string)null);
                 });
 
             modelBuilder.Entity("AuroraAuto.Models.Order", b =>
@@ -132,7 +132,7 @@ namespace AuroraAuto.Migrations
 
                     b.HasIndex("PaymentID");
 
-                    b.ToTable("Order");
+                    b.ToTable("Order", (string)null);
                 });
 
             modelBuilder.Entity("AuroraAuto.Models.Payment", b =>
@@ -155,7 +155,7 @@ namespace AuroraAuto.Migrations
 
                     b.HasKey("PaymentID");
 
-                    b.ToTable("Payment");
+                    b.ToTable("Payment", (string)null);
                 });
 
             modelBuilder.Entity("AuroraAuto.Models.Product", b =>
@@ -187,7 +187,7 @@ namespace AuroraAuto.Migrations
 
                     b.HasIndex("CategoryID");
 
-                    b.ToTable("Product");
+                    b.ToTable("Product", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
