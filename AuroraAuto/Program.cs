@@ -7,7 +7,7 @@ var connectionString = builder.Configuration.GetConnectionString("AuroraAutoCont
 builder.Services.AddDbContext<AuroraAutoContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<AuroraAutoContext>().AddRoles<IdentityRole>();
+                .AddEntityFrameworkStores<AuroraAutoContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -36,3 +36,15 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var roles = new[] { "Admin", "Manager", "User" };
+
+    foreach (var role in roles)
+    {
+        if (!await roleManager.RoleExistsAsync(role))
+            await roleManager.CreateAsync(new IdentityRole(role));
+    }
+}
