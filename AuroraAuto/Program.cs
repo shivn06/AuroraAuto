@@ -6,7 +6,8 @@ var connectionString = builder.Configuration.GetConnectionString("AuroraAutoCont
 
 builder.Services.AddDbContext<AuroraAutoContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<AuroraAutoContext>();
 
 // Add services to the container.

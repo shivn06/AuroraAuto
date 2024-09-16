@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AuroraAuto.Areas.Identity.Data;
 using AuroraAuto.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AuroraAuto.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class CustomersController : Controller
     {
         private readonly AuroraAutoContext _context;

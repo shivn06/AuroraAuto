@@ -32,20 +32,20 @@ public class AuroraAutoContext : IdentityDbContext<IdentityUser>
             new IdentityUser
             {
                 Id = "1",
-                UserName = "admin@example.com",
-                NormalizedUserName = "ADMIN@EXAMPLE>COM",
-                Email = "admin@example.com",
-                NormalizedEmail = "ADMIN@EXAMPLE.COM",
+                UserName = "Admin",
+                NormalizedUserName = "ADMIN",
+                Email = "admin@auroraauto.com",
+                NormalizedEmail = "ADMIN@AURORAAUTO.COM",
                 EmailConfirmed = true,
                 PasswordHash = harsher.HashPassword(null, "Admin123")
             },
             new IdentityUser
             {
                 Id = "2",
-                UserName = "employee@example.com",
-                NormalizedUserName = "EMPLOYEE@EXAMPLE>COM",
-                Email = "employee@example.com",
-                NormalizedEmail = "EMPLOYEE@EXAMPLE.COM",
+                UserName = "Shiv",
+                NormalizedUserName = "SHIV",
+                Email = "ac116531@avcol.school.nz",
+                NormalizedEmail = "AC116531@AVCOL.SCHOOL.NZ",
                 EmailConfirmed = true,
                 PasswordHash = harsher.HashPassword(null, "Employee123")
             }
