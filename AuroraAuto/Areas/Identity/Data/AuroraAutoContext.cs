@@ -16,14 +16,50 @@ public class AuroraAutoContext : IdentityDbContext<IdentityUser>
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
-        // Customize the ASP.NET Identity model and override the defaults if needed.
-        // For example, you can rename the ASP.NET Identity table names and more.
-        // Add your customizations after calling base.OnModelCreating(builder);
+        builder.Entity<IdentityUserLogin<string>>(entity =>
+        {
+            entity.HasKey(e => new { e.LoginProvider, e.ProviderKey });
+        });
 
-        builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
+        builder.Entity<IdentityRole>().HasData(
+        new IdentityRole { Id = "1", Name = "Admin", NormalizedName = "ADMIN" },
+        new IdentityRole { Id = "2", Name = "Staff", NormalizedName = "STAFF" }
+        );
+
+        var harsher = new PasswordHasher<IdentityUser>();
+        builder.Entity<IdentityUser>().HasData(
+
+            new IdentityUser
+            {
+                Id = "1",
+                UserName = "admin@example.com",
+                NormalizedUserName = "ADMIN@EXAMPLE>COM",
+                Email = "admin@example.com",
+                NormalizedEmail = "ADMIN@EXAMPLE.COM",
+                EmailConfirmed = true,
+                PasswordHash = harsher.HashPassword(null, "Admin123")
+            },
+            new IdentityUser
+            {
+                Id = "2",
+                UserName = "employee@example.com",
+                NormalizedUserName = "EMPLOYEE@EXAMPLE>COM",
+                Email = "employee@example.com",
+                NormalizedEmail = "EMPLOYEE@EXAMPLE.COM",
+                EmailConfirmed = true,
+                PasswordHash = harsher.HashPassword(null, "Employee123")
+            }
+
+        );
+
+        builder.Entity<IdentityUserRole<string>>().HasData(
+            new IdentityUserRole<string> { RoleId = "1", UserId = "1" },
+            new IdentityUserRole<string> { RoleId = "2", UserId = "2" }
+        );
+
     }
 
-public DbSet<AuroraAuto.Models.Customer> Customer { get; set; } = default!;
+    public DbSet<AuroraAuto.Models.Customer> Customer { get; set; } = default!;
 
 public DbSet<AuroraAuto.Models.Cart> Cart { get; set; } = default!;
 
