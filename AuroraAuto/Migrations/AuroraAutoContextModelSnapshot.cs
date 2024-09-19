@@ -325,15 +325,15 @@ namespace AuroraAuto.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "29b25dcc-02e1-481d-b854-31543c35edb2",
+                            ConcurrencyStamp = "0bf57410-20b5-41eb-83d0-9eb0f1584daf",
                             Email = "admin@auroraauto.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@AURORAAUTO.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMVsQR6KFhi+izkKbSZ6pbzWFkshlhRnaq1FnrBL5QIYAnX2WY9ZJkNdSj2xghhRnw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAC2lpcX/vpzL3h/HRPFB4+NcC5ggAntx/uRt3tN9XxjlJ3vmFxeqwZ+sjx5MQc5iA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7d5a39c6-13af-42c0-bbb5-f1216fff4d97",
+                            SecurityStamp = "566f48cf-77de-4aef-bf37-c0f2967fb5b5",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         },
@@ -341,15 +341,15 @@ namespace AuroraAuto.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4d6cd1c3-2d62-4de5-880c-1d1b30afd5bc",
+                            ConcurrencyStamp = "7189a09b-c5a8-4684-a845-36de5c288ddb",
                             Email = "ac116531@avcol.school.nz",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "AC116531@AVCOL.SCHOOL.NZ",
                             NormalizedUserName = "SHIV",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGVUiA+RxI/G+clSYWKZuitRUbDvkwROWbNXVzwGrSqSPZNvjQ+4w5KAnOp6Ny2ZQw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECktPv2CQuu0v1S00/ztexRn9NMCTC9U5axf44F9z0b9YWpneGGP5cZ1rsLxpAHzLA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "fd1429a6-9cfd-43e0-a8a8-9258cebb5dd6",
+                            SecurityStamp = "b747d120-0ac0-4391-9f7d-a47b01556103",
                             TwoFactorEnabled = false,
                             UserName = "Shiv"
                         });

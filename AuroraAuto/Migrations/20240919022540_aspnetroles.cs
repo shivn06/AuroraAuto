@@ -26,8 +26,8 @@ namespace AuroraAuto.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "29b25dcc-02e1-481d-b854-31543c35edb2", "admin@auroraauto.com", true, false, null, "ADMIN@AURORAAUTO.COM", "ADMIN", "AQAAAAIAAYagAAAAEMVsQR6KFhi+izkKbSZ6pbzWFkshlhRnaq1FnrBL5QIYAnX2WY9ZJkNdSj2xghhRnw==", null, false, "7d5a39c6-13af-42c0-bbb5-f1216fff4d97", false, "Admin" },
-                    { "2", 0, "4d6cd1c3-2d62-4de5-880c-1d1b30afd5bc", "ac116531@avcol.school.nz", true, false, null, "AC116531@AVCOL.SCHOOL.NZ", "SHIV", "AQAAAAIAAYagAAAAEGVUiA+RxI/G+clSYWKZuitRUbDvkwROWbNXVzwGrSqSPZNvjQ+4w5KAnOp6Ny2ZQw==", null, false, "fd1429a6-9cfd-43e0-a8a8-9258cebb5dd6", false, "Shiv" }
+                    { "1", 0, "0bf57410-20b5-41eb-83d0-9eb0f1584daf", "admin@auroraauto.com", true, false, null, "ADMIN@AURORAAUTO.COM", "ADMIN", "AQAAAAIAAYagAAAAEAC2lpcX/vpzL3h/HRPFB4+NcC5ggAntx/uRt3tN9XxjlJ3vmFxeqwZ+sjx5MQc5iA==", null, false, "566f48cf-77de-4aef-bf37-c0f2967fb5b5", false, "Admin" },
+                    { "2", 0, "7189a09b-c5a8-4684-a845-36de5c288ddb", "ac116531@avcol.school.nz", true, false, null, "AC116531@AVCOL.SCHOOL.NZ", "SHIV", "AQAAAAIAAYagAAAAECktPv2CQuu0v1S00/ztexRn9NMCTC9U5axf44F9z0b9YWpneGGP5cZ1rsLxpAHzLA==", null, false, "b747d120-0ac0-4391-9f7d-a47b01556103", false, "Shiv" }
                 });
 
             migrationBuilder.InsertData(

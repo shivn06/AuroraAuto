@@ -12,7 +12,6 @@ public class AuroraAutoContext : IdentityDbContext<IdentityUser>
         : base(options)
     {
     }
-
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -37,7 +36,7 @@ public class AuroraAutoContext : IdentityDbContext<IdentityUser>
                 Email = "admin@auroraauto.com",
                 NormalizedEmail = "ADMIN@AURORAAUTO.COM",
                 EmailConfirmed = true,
-                PasswordHash = harsher.HashPassword(null, "Admin@123")
+                PasswordHash = harsher.HashPassword(null, "Admin123")
             },
             new IdentityUser
             {
@@ -47,7 +46,7 @@ public class AuroraAutoContext : IdentityDbContext<IdentityUser>
                 Email = "ac116531@avcol.school.nz",
                 NormalizedEmail = "AC116531@AVCOL.SCHOOL.NZ",
                 EmailConfirmed = true,
-                PasswordHash = harsher.HashPassword(null, "Employee@123")
+                PasswordHash = harsher.HashPassword(null, "Employee123")
             }
 
         );
@@ -58,6 +57,7 @@ public class AuroraAutoContext : IdentityDbContext<IdentityUser>
         );
 
     }
+
 
     public DbSet<AuroraAuto.Models.Customer> Customer { get; set; } = default!;
 
@@ -83,3 +83,5 @@ public DbSet<AuroraAuto.Models.Product> Product { get; set; } = default!;
         }
     }
 }
+
+
