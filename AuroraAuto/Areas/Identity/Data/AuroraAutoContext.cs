@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AuroraAuto.Areas.Identity.Data;
 
-public class AuroraAutoContext : IdentityDbContext<IdentityUser>
+public class AuroraAutoContext : IdentityDbContext<AuroraAutoUser>
 {
     public AuroraAutoContext(DbContextOptions<AuroraAutoContext> options)
         : base(options)
@@ -21,39 +21,29 @@ public class AuroraAutoContext : IdentityDbContext<IdentityUser>
         });
 
         builder.Entity<IdentityRole>().HasData(
-        new IdentityRole { Id = "1", Name = "Admin", NormalizedName = "ADMIN" },
-        new IdentityRole { Id = "2", Name = "Staff", NormalizedName = "STAFF" }
+        new IdentityRole { Id = "1", Name = "Admin", NormalizedName = "ADMIN" }
         );
 
-        var harsher = new PasswordHasher<IdentityUser>();
-        builder.Entity<IdentityUser>().HasData(
+        var harsher = new PasswordHasher<AuroraAutoUser>();
+        builder.Entity<AuroraAutoUser>().HasData(
 
-            new IdentityUser
+            new AuroraAutoUser
             {
                 Id = "1",
-                UserName = "Admin",
-                NormalizedUserName = "ADMIN",
+                FirstName = "Shiv",
+                LastName = "Naidu",
+                UserName = "admin@auroraauto.com",
+                NormalizedUserName = "ADMIN@AURORAAUTO.COM",
                 Email = "admin@auroraauto.com",
                 NormalizedEmail = "ADMIN@AURORAAUTO.COM",
                 EmailConfirmed = true,
                 PasswordHash = harsher.HashPassword(null, "Admin123")
-            },
-            new IdentityUser
-            {
-                Id = "2",
-                UserName = "Shiv",
-                NormalizedUserName = "SHIV",
-                Email = "ac116531@avcol.school.nz",
-                NormalizedEmail = "AC116531@AVCOL.SCHOOL.NZ",
-                EmailConfirmed = true,
-                PasswordHash = harsher.HashPassword(null, "Employee123")
             }
 
         );
 
         builder.Entity<IdentityUserRole<string>>().HasData(
-            new IdentityUserRole<string> { RoleId = "1", UserId = "1" },
-            new IdentityUserRole<string> { RoleId = "2", UserId = "2" }
+            new IdentityUserRole<string> { RoleId = "1", UserId = "1" }
         );
 
     }

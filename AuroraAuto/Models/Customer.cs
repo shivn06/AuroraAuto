@@ -8,10 +8,10 @@ namespace AuroraAuto.Models
     {
         public int CustomerID { get; set; }
 
-        [Required]
-        [StringLength(30)]
-        [DisplayName("First Name")]
-        [RegularExpression("^[a-zA-Z-' 1-9]+$", ErrorMessage = "You have entered an Invalid Character")]
+        [Required] // Does not allow the field to be left empty/null
+        [StringLength(30)] // Only allows input of upto 30 characters
+        [DisplayName("First Name")] // Sets the text that is displayed as the input field label
+        [RegularExpression("^[a-zA-Z-' 1-9]+$", ErrorMessage = "You have entered an Invalid Character")] // Allows only Alphanumeric Characters
         public required string FirstName { get; set; }  // First Name Field
 
         [StringLength(30)]
@@ -21,7 +21,7 @@ namespace AuroraAuto.Models
         [Required]
         [StringLength(30)]
         [DisplayName("Last Name")]
-        [RegularExpression("^[a-zA-Z-' 1-9]+$", ErrorMessage = "You have entered an Invalid Character")]
+        [RegularExpression("^[a-zA-Z-' 1-9]+$", ErrorMessage = "You have entered an Invalid Character")] // Allows only Alphanumeric Characters
         public required string LastName { get; set; } // Last Name Field  
 
         [Required]
@@ -29,6 +29,7 @@ namespace AuroraAuto.Models
 
         [Required]
         [DataType(DataType.PhoneNumber)]
+        // Regular Expression validates all NZ Phone Numbers written in any correct format upto 10 characters
         [RegularExpression("^(((\\+?64\\s*[-\\.\\ ]?[3-9]|\\(?0[3-9]\\)?)\\s*[-\\.\\ ]?\\d{3}\\s*[-\\.\\ ]?\\d{4})|((\\+?64\\s*[-\\.\\(\\ ]?2\\d{1,2}[-\\.\\)\\ ]?|\\(?02\\d{1}\\)?)\\s*[-\\.\\ ]?\\d{3}\\s*[-\\.\\ ]?\\d{3,5})|((\\+?64\\s*[-\\.\\ ]?[-\\.\\(\\ ]?800[-\\.\\)\\ ]?|[-\\.\\(\\ ]?0800[-\\.\\)\\ ]?)\\s*[-\\.\\ ]?\\d{3}\\s*[-\\.\\ ]?(\\d{2}|\\d{5})))|^$$", ErrorMessage = "Please enter a valid Phone Number")]
         public required string Phone { get; set; } // Phone Number Field
 

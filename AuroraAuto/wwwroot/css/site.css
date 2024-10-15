@@ -18,9 +18,13 @@ html {
 }
 
 
+
 body {
-  margin-bottom: 60px;
-  background-color: transparent;
+
+    margin-bottom: 60px;
+    background-color: transparent;
+    background-image: url('../images/pexels-j-l-fizzell-94536920-28882039.jpg');
+    background-position:center;
 }
 
 .backgroundimage {
