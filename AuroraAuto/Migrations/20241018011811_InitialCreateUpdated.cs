@@ -90,7 +90,7 @@ namespace AuroraAuto.Migrations
                     PaymentID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PayAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    PayMethod = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PayMethod = table.Column<int>(type: "int", nullable: false),
                     PayDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -294,7 +294,7 @@ namespace AuroraAuto.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "1", 0, "a3969fe7-7ee3-4cea-abbd-1b86f191fbcd", "admin@auroraauto.com", true, "Shiv", "Naidu", false, null, "ADMIN@AURORAAUTO.COM", "ADMIN@AURORAAUTO.COM", "AQAAAAIAAYagAAAAEKwt/K28ZSp/CSFI8Mf+sKLpdlWpqJz1FMIfYoZfAvHXnwVWKyO09CbEBn3kiGweMQ==", null, false, "7c14c29c-0ea3-47c2-be24-fc1f568369f5", false, "admin@auroraauto.com" });
+                values: new object[] { "1", 0, "9914662b-0d45-4164-ab0a-58c9d01ae25c", "admin@auroraauto.com", true, "Shiv", "Naidu", false, null, "ADMIN@AURORAAUTO.COM", "ADMIN@AURORAAUTO.COM", "AQAAAAIAAYagAAAAEONpDDgMV5pSsO+Ju34E/kl7Wdudr8Tx+2b5zN1wv9weSjc1vSv2vXXz5SXUbhwRvA==", null, false, "f1e4e304-8e2e-4c1d-ab44-fd21567dc237", false, "admin@auroraauto.com" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",

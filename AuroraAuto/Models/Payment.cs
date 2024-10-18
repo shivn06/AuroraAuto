@@ -26,7 +26,7 @@ namespace AuroraAuto.Models
 
         [Required]
         [DisplayName("Pay Method")]
-        public required Method PayMethod { get; set; } // Enum list field
+        public  Method PayMethod { get; set; } // Enum list field
 
         [Required]
         [DisplayName("Pay Date")]

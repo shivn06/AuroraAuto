@@ -18,7 +18,7 @@ namespace AuroraAuto.Models
 
         [DisplayName("Product Image")]
         [Required]
-        [NotMapped]
+        [NotMapped] // Removes the content of a field from being mapped into the database.
         public IFormFile ProductImage { get; set; } // Creates an Upload Image field for Product Images
 
         [DisplayName("Product Name")]

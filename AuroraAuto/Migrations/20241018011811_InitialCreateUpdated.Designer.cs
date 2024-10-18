@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AuroraAuto.Migrations
 {
     [DbContext(typeof(AuroraAutoContext))]
-    [Migration("20241015151424_InitialCreateUpdated")]
+    [Migration("20241018011811_InitialCreateUpdated")]
     partial class InitialCreateUpdated
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace AuroraAuto.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.7")
+                .HasAnnotation("ProductVersion", "8.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -102,7 +102,7 @@ namespace AuroraAuto.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a3969fe7-7ee3-4cea-abbd-1b86f191fbcd",
+                            ConcurrencyStamp = "9914662b-0d45-4164-ab0a-58c9d01ae25c",
                             Email = "admin@auroraauto.com",
                             EmailConfirmed = true,
                             FirstName = "Shiv",
@@ -110,9 +110,9 @@ namespace AuroraAuto.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@AURORAAUTO.COM",
                             NormalizedUserName = "ADMIN@AURORAAUTO.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKwt/K28ZSp/CSFI8Mf+sKLpdlWpqJz1FMIfYoZfAvHXnwVWKyO09CbEBn3kiGweMQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEONpDDgMV5pSsO+Ju34E/kl7Wdudr8Tx+2b5zN1wv9weSjc1vSv2vXXz5SXUbhwRvA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7c14c29c-0ea3-47c2-be24-fc1f568369f5",
+                            SecurityStamp = "f1e4e304-8e2e-4c1d-ab44-fd21567dc237",
                             TwoFactorEnabled = false,
                             UserName = "admin@auroraauto.com"
                         });
@@ -245,9 +245,8 @@ namespace AuroraAuto.Migrations
                     b.Property<DateTime>("PayDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("PayMethod")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("PayMethod")
+                        .HasColumnType("int");
 
                     b.HasKey("PaymentID");
 

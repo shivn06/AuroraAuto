@@ -52,7 +52,7 @@ namespace AuroraAuto.Controllers
         {
             ViewData["CartID"] = new SelectList(_context.Cart, "CartID", "CartID");
             ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Address");
-            ViewData["PaymentID"] = new SelectList(_context.Set<Payment>(), "PaymentID", "PaymentID");
+            ViewData["PaymentID"] = new SelectList(_context.Payment, "PaymentID", "PaymentID");
             return View();
         }
 
@@ -71,7 +71,7 @@ namespace AuroraAuto.Controllers
             }
             ViewData["CartID"] = new SelectList(_context.Cart, "CartID", "CartID", order.CartID);
             ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Address", order.CustomerID);
-            ViewData["PaymentID"] = new SelectList(_context.Set<Payment>(), "PaymentID", "PaymentID", order.PaymentID);
+            ViewData["PaymentID"] = new SelectList(_context.Payment, "PaymentID", "PaymentID", order.PaymentID);
             return View(order);
         }
 
