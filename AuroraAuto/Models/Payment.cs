@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AuroraAuto.Models
 {
-    public enum Method // Enum list to create a dropdown, limiting inputs to valid data only
+    public enum Pmethod // Enum list to create a dropdown, limiting inputs to valid data only
     {
         [Display(Name = "Credit Card")]
         CreditCard,
@@ -26,7 +26,7 @@ namespace AuroraAuto.Models
 
         [Required]
         [DisplayName("Pay Method")]
-        public  Method PayMethod { get; set; } // Enum list field
+        public  Pmethod PayMethod { get; set; } // Enum list field
 
         [Required]
         [DisplayName("Pay Date")]

@@ -19,7 +19,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="PayMethod" class="control-label"></label>
-                <select asp-for="PayMethod" class="form-control"></select>
+                <select asp-for="PayMethod" class="form-control" asp-items="@Html.GetEnumSelectList(typeof(Pmethod))"></select>
                 <span asp-validation-for="PayMethod" class="text-danger"></span>
             </div>
             <div class="form-group">

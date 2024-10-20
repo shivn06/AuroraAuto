@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AuroraAuto.Migrations
 {
     [DbContext(typeof(AuroraAutoContext))]
-    [Migration("20241018011811_InitialCreateUpdated")]
+    [Migration("20241020074815_InitialCreateUpdated")]
     partial class InitialCreateUpdated
     {
         /// <inheritdoc />
@@ -102,7 +102,7 @@ namespace AuroraAuto.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9914662b-0d45-4164-ab0a-58c9d01ae25c",
+                            ConcurrencyStamp = "f170345d-210a-4f90-b2dd-040a62a5482f",
                             Email = "admin@auroraauto.com",
                             EmailConfirmed = true,
                             FirstName = "Shiv",
@@ -110,9 +110,9 @@ namespace AuroraAuto.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@AURORAAUTO.COM",
                             NormalizedUserName = "ADMIN@AURORAAUTO.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEONpDDgMV5pSsO+Ju34E/kl7Wdudr8Tx+2b5zN1wv9weSjc1vSv2vXXz5SXUbhwRvA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDIiHldBpUWYWq1QhObJob89VK5nU+IfF1EfmZrqdjfO9bsWX2kCfmiSh60Yn6s4ww==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f1e4e304-8e2e-4c1d-ab44-fd21567dc237",
+                            SecurityStamp = "1872542a-9e65-44e7-be35-747e85ea5087",
                             TwoFactorEnabled = false,
                             UserName = "admin@auroraauto.com"
                         });

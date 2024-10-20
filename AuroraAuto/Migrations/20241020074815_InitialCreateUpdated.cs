@@ -294,7 +294,7 @@ namespace AuroraAuto.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "1", 0, "9914662b-0d45-4164-ab0a-58c9d01ae25c", "admin@auroraauto.com", true, "Shiv", "Naidu", false, null, "ADMIN@AURORAAUTO.COM", "ADMIN@AURORAAUTO.COM", "AQAAAAIAAYagAAAAEONpDDgMV5pSsO+Ju34E/kl7Wdudr8Tx+2b5zN1wv9weSjc1vSv2vXXz5SXUbhwRvA==", null, false, "f1e4e304-8e2e-4c1d-ab44-fd21567dc237", false, "admin@auroraauto.com" });
+                values: new object[] { "1", 0, "f170345d-210a-4f90-b2dd-040a62a5482f", "admin@auroraauto.com", true, "Shiv", "Naidu", false, null, "ADMIN@AURORAAUTO.COM", "ADMIN@AURORAAUTO.COM", "AQAAAAIAAYagAAAAEDIiHldBpUWYWq1QhObJob89VK5nU+IfF1EfmZrqdjfO9bsWX2kCfmiSh60Yn6s4ww==", null, false, "1872542a-9e65-44e7-be35-747e85ea5087", false, "admin@auroraauto.com" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
