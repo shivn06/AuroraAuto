@@ -50,7 +50,8 @@
 
 
     <div class="container">
-        <form action="/action_page.php">
+        <form action="https://formspree.io/f/manynlkq"
+              method="POST">
             <label for="fname">First Name</label>
             <input type="text" id="fname" name="firstname" placeholder="First Name">
 
@@ -65,10 +66,14 @@
                 <option value="hamilton">Hamilton</option>
                 <option value="dunedin">Dunedin</option>
                 <option value="rotorua">Rotorua</option>
+                <option value="rotorua">Other</option>
             </select>
 
-            <label for="subject">Queries</label>
-            <textarea id="subject" name="subject" placeholder="Queries" style="height:200px"></textarea>
+            <label for="subject">Subject</label>
+            <textarea id="subject" name="subject" placeholder="Subject"></textarea>
+
+            <label for="queries">Queries</label>
+            <input type="text" id="queries" name="queries" placeholder="Queries" style="height:200px">
 
             <input type="submit" value="Send">
         </form>

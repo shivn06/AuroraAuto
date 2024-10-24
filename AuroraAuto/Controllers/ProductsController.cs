@@ -99,7 +99,7 @@ namespace AuroraAuto.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
-            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryID");
+            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryName");
             return View();
         }
 
@@ -145,7 +145,7 @@ namespace AuroraAuto.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryID", product.CategoryID);
+            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryName", product.CategoryID);
             return View(product);
         }
 
@@ -181,7 +181,7 @@ namespace AuroraAuto.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryID", product.CategoryID);
+            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryName", product.CategoryID);
             return View(product);
         }
 

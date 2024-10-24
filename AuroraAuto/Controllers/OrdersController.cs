@@ -51,8 +51,8 @@ namespace AuroraAuto.Controllers
         public IActionResult Create()
         {
             ViewData["CartID"] = new SelectList(_context.Cart, "CartID", "CartID");
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Address");
-            ViewData["PaymentID"] = new SelectList(_context.Payment, "PaymentID", "PaymentID");
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "FirstName");
+            ViewData["PaymentID"] = new SelectList(_context.Payment, "PaymentID", "PayAmount");
             return View();
         }
 
@@ -70,8 +70,8 @@ namespace AuroraAuto.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CartID"] = new SelectList(_context.Cart, "CartID", "CartID", order.CartID);
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Address", order.CustomerID);
-            ViewData["PaymentID"] = new SelectList(_context.Payment, "PaymentID", "PaymentID", order.PaymentID);
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "FirstName", order.CustomerID);
+            ViewData["PaymentID"] = new SelectList(_context.Payment, "PaymentID", "PayAmount", order.PaymentID);
             return View(order);
         }
 
@@ -89,8 +89,8 @@ namespace AuroraAuto.Controllers
                 return NotFound();
             }
             ViewData["CartID"] = new SelectList(_context.Cart, "CartID", "CartID", order.CartID);
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Address", order.CustomerID);
-            ViewData["PaymentID"] = new SelectList(_context.Set<Payment>(), "PaymentID", "PaymentID", order.PaymentID);
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "FirstName", order.CustomerID);
+            ViewData["PaymentID"] = new SelectList(_context.Set<Payment>(), "PaymentID", "PayAmount", order.PaymentID);
             return View(order);
         }
 
@@ -127,8 +127,8 @@ namespace AuroraAuto.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CartID"] = new SelectList(_context.Cart, "CartID", "CartID", order.CartID);
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Address", order.CustomerID);
-            ViewData["PaymentID"] = new SelectList(_context.Set<Payment>(), "PaymentID", "PaymentID", order.PaymentID);
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "FirstName", order.CustomerID);
+            ViewData["PaymentID"] = new SelectList(_context.Set<Payment>(), "PaymentID", "PayAmount", order.PaymentID);
             return View(order);
         }
 
