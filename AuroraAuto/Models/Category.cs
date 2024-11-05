@@ -9,6 +9,7 @@ namespace AuroraAuto.Models
         public int CategoryID { get; set; }
 
         [DisplayName("Category Name")] // this is the name that is displayed above the input box on the frontend
+        [StringLength(20)] // only allows an input of upto 20 characters
         public string CategoryName { get; set; }
 
         public ICollection<Product> Products { get; set; } // reference to Product Model for 1 to many relationship from category table to product table

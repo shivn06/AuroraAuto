@@ -23,6 +23,7 @@ namespace AuroraAuto.Models
 
         [DisplayName("Product Name")]
         [Required]
+        [StringLength(30)]
         public string ProductName { get; set; } // Name of Product
 
         [Required]

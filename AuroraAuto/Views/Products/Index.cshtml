@@ -27,7 +27,7 @@
     <thead>
         <tr>
             <th>
-                Product Image
+
             </th>
             <th>
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Product Name</a>
@@ -39,7 +39,7 @@
                 Stock
             </th>
             <th>
-                Category
+
             </th>
             <th></th>
         </tr>
@@ -60,7 +60,7 @@
                 @Html.DisplayFor(modelItem => item.Stock)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Category.CategoryID)
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
             </td>
             <td>
                     <a asp-action="Details" asp-route-id="@item.ProductID">Details</a>

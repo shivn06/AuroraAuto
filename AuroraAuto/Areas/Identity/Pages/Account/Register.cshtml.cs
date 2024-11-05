@@ -75,13 +75,13 @@ namespace AuroraAuto.Areas.Identity.Pages.Account
             [Required]
             [MaxLength(30)]
             [DisplayName("First Name")]
-            [RegularExpression("^[a-zA-Z-' 1-9]+$", ErrorMessage = "You have entered an Invalid Character")]
+            [RegularExpression("^[a-zA-Z-']+$", ErrorMessage = "You have entered an Invalid Character")]
             public string FirstName { get; set; }  // First Name Field
 
             [Required]
             [MaxLength(30)]
             [DisplayName("Last Name")]
-            [RegularExpression("^[a-zA-Z-' 1-9]+$", ErrorMessage = "You have entered an Invalid Character")]
+            [RegularExpression("^[a-zA-Z-']+$", ErrorMessage = "You have entered an Invalid Character")]
             public string LastName { get; set; } // Last Name Field
 
             /// <summary>

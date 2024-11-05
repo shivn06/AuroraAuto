@@ -15,7 +15,8 @@ namespace AuroraAuto.Models
         public required string FirstName { get; set; }  // First Name Field
 
         [StringLength(30)]
-        [DisplayName("Middle Name(s)")]
+        [DisplayName("Middle Name(s) - Optional")]
+        [RegularExpression("^[a-zA-Z-' 1-9]+$", ErrorMessage = "You have entered an Invalid Character")] // Allows only Alphanumeric Characters
         public string? MiddleName { get; set; } // Optional Middle Name Field
 
         [Required]
@@ -25,6 +26,8 @@ namespace AuroraAuto.Models
         public required string LastName { get; set; } // Last Name Field  
 
         [Required]
+        [StringLength(30)]
+        [RegularExpression("^[a-zA-Z-' 1-9]+$", ErrorMessage = "You have entered an Invalid Character")] // Allows only Alphanumeric Characters
         public required string Address { get; set; } // Address Field
 
         [Required]

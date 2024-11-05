@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="SQL_Queries\**" />
+    <Content Remove="SQL_Queries\**" />
+    <EmbeddedResource Remove="SQL_Queries\**" />
+    <None Remove="SQL_Queries\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
@@ -18,7 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="SQL_Queries\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
