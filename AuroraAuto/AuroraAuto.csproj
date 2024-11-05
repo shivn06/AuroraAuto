@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="SQL_Queries\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
