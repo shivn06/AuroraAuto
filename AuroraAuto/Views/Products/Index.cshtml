@@ -7,7 +7,10 @@
 <h1>Products</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    @if (User.IsInRole("Admin"))
+    {
+        <a asp-action="Create">Create New</a>
+    }
 </p>
 
 <form asp-action="Index" method="get">
@@ -60,9 +63,12 @@
                 @Html.DisplayFor(modelItem => item.Category.CategoryID)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProductID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
+                    <a asp-action="Details" asp-route-id="@item.ProductID">Details</a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
+                    }
             </td>
         </tr>
 }

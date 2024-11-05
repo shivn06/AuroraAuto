@@ -37,7 +37,7 @@ public class AuroraAutoContext : IdentityDbContext<AuroraAutoUser>
                 Email = "admin@auroraauto.com",
                 NormalizedEmail = "ADMIN@AURORAAUTO.COM",
                 EmailConfirmed = true,
-                PasswordHash = harsher.HashPassword(null, "Admin123")
+                PasswordHash = harsher.HashPassword(user: null, "Admin123")
             }
 
         );
